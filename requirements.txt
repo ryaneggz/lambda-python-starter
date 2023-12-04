@@ -1,1 +1,4 @@
-requests
+promptengineers[retrieval]
+pymongo
+cryptography==37.0.4
+cffi

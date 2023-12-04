@@ -3,30 +3,34 @@ import sys
 import json
 import requests
 
+from promptengineers.repos.user import UserRepo
+
 APP_ENV = 'development'
 
 def lambda_handler(event, context):
     # TODO implement
-    response = requests.get(event.get('url'))
+    pinecone_keys = ['PINECONE_KEY', 'PINECONE_ENV', 'PINECONE_INDEX', 'OPENAI_API_KEY']
+    tokens = UserRepo().find_token(
+        event.get('user_id'),
+        pinecone_keys
+    )
 
     # Checking if the request was successful
-    if response.status_code == 200:
+    if tokens:
         # Parsing the JSON response
-        data = response.json()
         return {
-            'statusCode': response.status_code,
-            'body': data
+            'statusCode': 200,
+            'body': tokens
         }
     else:
-        print(f"Failed to retrieve data: {response.status_code}")
+        print(f"Failed to retrieve data")
         return {
-            'statusCode': response.status_code,
-            'body': response.json()
+            'statusCode': 500,
         }
 
 if __name__ == '__main__' and APP_ENV == 'development':
     event = {
-        'url': 'https://jsonplaceholder.typicode.com/todos/1'
+        'user_id': '000000000000000000000000'
     }
 
     context = {}
