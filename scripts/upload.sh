@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -x ## Debugging
 
-VERSION="0.0.21"
+VERSION="0.0.23"
 
 # Define the name of the archive
 function_name='loader_lambda'
