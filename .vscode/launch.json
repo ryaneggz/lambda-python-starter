@@ -1,0 +1,17 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/test/lambda_function.py", // Runs the currently open file
+            // If you want to specify a particular file, use the following line instead
+            // "program": "${workspaceFolder}/path/to/your/script.py",
+            "console": "integratedTerminal",
+            "envFile": "${workspaceFolder}/.env.local",
+        }
+    ]
+}
