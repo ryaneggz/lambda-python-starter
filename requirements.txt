@@ -1,4 +1,4 @@
-promptengineers[retrieval]
+promptengineers[retrieval]==0.0.23
 pymongo
 cryptography==37.0.4
 cffi
